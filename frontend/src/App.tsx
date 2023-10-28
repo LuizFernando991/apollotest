@@ -28,9 +28,12 @@ import categoryReducer from './reducers/CategoriesReducer'
 import pageContextReducer from './reducers/PageContextReducer'
 import { useDebounce } from './hooks/useDebounce'
 import { Product } from './types/ProductType'
+import CreateModal from './components/CreateModal'
 
 function App() {
   const [loading, setLoading] = useState(true)
+  const [createNewProductModalOpen, setCreateNewProductModalOpen] =
+    useState(false)
   const [selectedProduct, setSelectedProduct] = useState<null | Product>(null)
   const [products, productsDispatch] = useReducer(productReducer, [])
   const [categoriesContext, categoryContextDispatch] = useReducer(
@@ -138,7 +141,9 @@ function App() {
           </Box>
           <Button
             variant="contained"
-            onClick={() => {}}
+            onClick={() => {
+              setCreateNewProductModalOpen(true)
+            }}
             sx={{
               display: 'flex',
               alignItems: 'center',
@@ -246,6 +251,15 @@ function App() {
               type: 'REMOVE_PRODUCT',
               payload: selectedProduct.id
             })
+          }}
+        />
+      )}
+      {createNewProductModalOpen && (
+        <CreateModal
+          categories={categoriesContext.categories}
+          setModalOpen={setCreateNewProductModalOpen}
+          onCreate={(prod: Product) => {
+            productsDispatch({ type: 'ADD_NEW_PRODUCT', payload: prod })
           }}
         />
       )}
