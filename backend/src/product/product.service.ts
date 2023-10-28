@@ -49,7 +49,7 @@ export class ProductService {
     orderByFilter: string,
     categoriesFilter: string[]
   ) {
-    const limit = 20
+    const limit = 10
     const skip = (page - 1) * limit
 
     const orderBy: Prisma.ProductOrderByWithRelationInput = {}
