@@ -13,8 +13,11 @@ first open the backend folder and:
   PORT=3000
 ```
 2 - Run the command ```npm install``` to install the dependencies
+
 3 - Run the command ```npx prisma db push``` to update db collections
+
 4 - Run the command ```npx prisma db seed``` to update seeds on db
+
 5 - Run the command ```npm run start:dev``` to run local server
 
 ps: I used mongoDB to this project
@@ -28,7 +31,9 @@ first open the frontend folder and:
 ```dotenv
   VITE_API_KEY="http://localhost:3000/"
 ```
+
 2 - Run the command ```npm install``` to install the dependencies
+
 3 - Run the command ```npm run dev``` to run a local server
 
 
