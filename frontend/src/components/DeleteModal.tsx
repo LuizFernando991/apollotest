@@ -45,7 +45,7 @@ const DeleteModal: FC<IDeleteModalProps> = ({
       action={onConfirmDelete}
       disabled={deleting}
     >
-      Tem certeza que deseja deletar &quot;{product?.name}&quot;?
+      Are you sure you want to delete &quot;{product?.name}&quot;?
     </Modal>
   )
 }
