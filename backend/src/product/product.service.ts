@@ -30,9 +30,10 @@ export class ProductService {
     const newProduct = await this.prisma.product.create({
       data: {
         ...createProductDto,
-        promotionalPrice:
+        promotionalPrice: +(
           createProductDto.price -
           createProductDto.price * (category.discont / 100)
+        ).toFixed(2)
       },
       include: {
         category: { select: { id: true, name: true, discont: true } }
