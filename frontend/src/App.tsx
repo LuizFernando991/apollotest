@@ -54,7 +54,7 @@ function App() {
 
   useEffect(() => {
     const controller = new AbortController()
-    const signal = controller.signal;
+    const signal = controller.signal
     api
       .get(`/category`, { signal })
       .then((res) => {
@@ -70,7 +70,7 @@ function App() {
 
   useEffect(() => {
     const controller = new AbortController()
-    const signal = controller.signal;
+    const signal = controller.signal
     productsDispatch({ type: 'RESET' })
     setLoading(true)
     const categoriesQuery =
