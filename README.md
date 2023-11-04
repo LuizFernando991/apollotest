@@ -40,8 +40,13 @@ first open the frontend folder and:
 ## QUESTIONS ANSWERS
 
 1 - What would be your first improvements if you had more implementation time?
+  
   R: I would also create routes for the CRUD of categories, as well as an authentication system, along with the ability to edit products.
+
 2 - Thinking about your solution, how would maintenance be in case of adding new product categories? What would need to be changed?
+  
   R: I programmed with this idea in mind, to add categories later, so it would be easy to implement since there is already a categories table in the database. It would only be necessary to create the routes and implement a 'categories' page on the frontend.
+
 3 - What changes would need to be made to support updates in the product category's discount percentage so that whenever the discount percentage was changed, the new price would be reflected in all products of the same category?
+  
   R: It would only be necessary to remove the "Promotional price" field and calculate the value based on the categories table since both tables (products and categories) are already related. So, the discount value would always be updated.
