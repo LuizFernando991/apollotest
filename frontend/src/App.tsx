@@ -54,8 +54,9 @@ function App() {
 
   useEffect(() => {
     const controller = new AbortController()
+    const signal = controller.signal;
     api
-      .get(`/category`)
+      .get(`/category`, { signal })
       .then((res) => {
         categoryContextDispatch({ type: 'LOAD_CATEGORIES', payload: res.data })
       })
@@ -69,6 +70,7 @@ function App() {
 
   useEffect(() => {
     const controller = new AbortController()
+    const signal = controller.signal;
     productsDispatch({ type: 'RESET' })
     setLoading(true)
     const categoriesQuery =
@@ -77,7 +79,7 @@ function App() {
         : ''
     api
       .get(
-        `/product/?page=${1}&search=${debouncedSearch}&orderBy=${orderBy}&categories=${categoriesQuery}`
+        `/product/?page=${1}&search=${debouncedSearch}&orderBy=${orderBy}&categories=${categoriesQuery}`, { signal }
       )
       .then((res) => {
         pageContextDispatch({
